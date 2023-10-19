@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Rooster Ranch
+title: "Rooster Ranch"
 email: jonathan.cochran@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to Rooster Ranch, a serene hobby farm run by our family 
@@ -33,9 +33,24 @@ twitter_username: JonathanCochran
 github_username:  Jonathan-Cochran
 
 # Build settings
-theme: minima
+#theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
+
+#THEME Configuration
+minimal_mistakes_skin: "dark" #"default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+locale: "en-US"
+title_separator: "|"
+repository: "Jonathan-Cochran/RoosterRanch"
+
+#include additional folders during compilation
+include: ["_pages"]
+
+head_scripts:
+  - /assets/css/custom.css
+#  - https://code.jquery.com/jquery-3.2.1.min.js
 
 # Exclude from processing.
 # The following items will not be processed, by default.
