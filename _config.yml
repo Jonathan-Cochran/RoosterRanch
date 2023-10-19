@@ -46,8 +46,10 @@ title_separator: "|"
 repository: "Jonathan-Cochran/RoosterRanch"
 
 #include additional folders during compilation
-include: ["_pages"]
-
+include:
+  - _data
+  - _pages
+  
 head_scripts:
   - /assets/css/custom.css
 #  - https://code.jquery.com/jquery-3.2.1.min.js
