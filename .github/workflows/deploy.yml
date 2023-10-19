@@ -1,0 +1,35 @@
+name: Deploy to Amazon S3
+
+on:
+  push:
+    branches:
+      - main  # Adjust with your branch name if it's not 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6  # Use the Ruby version to match your Jekyll project
+
+    - name: Build Jekyll Site
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec jekyll build
+
+    - name: Deploy to Amazon S3
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: www.roosterran.ch
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'  # Adjust with your AWS region
