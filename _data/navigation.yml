@@ -3,9 +3,9 @@
 main:
   - title: "Home"
     url: /
-#  - title: "Products"
-#    url: /products/
+#  - title: "Family"
+#    url: /family/
   - title: "About"
-    url: /about/
+    url: /about/index.html
   - title: "Contact"
-    url: /contact/
+    url: /contact/index.html
